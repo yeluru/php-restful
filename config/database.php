@@ -2,10 +2,10 @@
 class Database{
  
     // specify your own database credentials
-    private $host = "restfulapis.db.3823919.0a2.hostedresource.net";
-    private $db_name = "restfulapis";
-    private $username = "restfulapis";
-    private $password = "Umad%v1M";
+    private $host = "";
+    private $db_name = "";
+    private $username = "";
+    private $password = "";
     public $conn;
  
     // get the database connection
