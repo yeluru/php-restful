@@ -27,7 +27,7 @@ $student->id = $data->id;
 $student->name = $data->name;
 $student->price = $data->price;
 $student->description = $data->description;
-$student->batch_id = $data->batch_id;
+$student->course_id = $data->course_id;
  
 // update the student
 if($student->update()){

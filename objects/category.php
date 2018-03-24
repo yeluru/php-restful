@@ -3,7 +3,7 @@ class Category{
  
     // database connection and table name
     private $conn;
-    private $table_name = "categories";
+    private $table_name = "category";
  
     // object properties
     public $id;

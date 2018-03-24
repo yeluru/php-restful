@@ -5,14 +5,14 @@ header("Content-Type: application/json; charset=UTF-8");
  
 // include database and object files
 include_once '../config/database.php';
-include_once '../objects/batch.php';
+include_once '../objects/course.php';
  
 // instantiate database and class object
 $database = new Database();
 $db = $database->getConnection();
  
 // initialize object
-$class = new batch($db);
+$class = new course($db);
  
 // query classs
 $stmt = $class->read();
@@ -22,8 +22,8 @@ $num = $stmt->rowCount();
 if($num>0){
  
     // students array
-    $batches_arr=array();
-    $batches_arr["records"]=array();
+    $coursees_arr=array();
+    $coursees_arr["records"]=array();
  
     // retrieve our table contents
     // fetch() is faster than fetchAll()
@@ -40,10 +40,10 @@ if($num>0){
             "description" => html_entity_decode($description)
         );
  
-        array_push($batches_arr["records"], $class_item);
+        array_push($coursees_arr["records"], $class_item);
     }
  
-    echo json_encode($batches_arr);
+    echo json_encode($coursees_arr);
 }
  
 else{

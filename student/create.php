@@ -24,7 +24,7 @@ $data = json_decode(file_get_contents("php://input"));
 $student->name = $data->name;
 $student->price = $data->price;
 $student->description = $data->description;
-$student->batch_id = $data->batch_id;
+$student->course_id = $data->course_id;
 $student->created = date('Y-m-d H:i:s');
  
 // create the student

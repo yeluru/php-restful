@@ -5,15 +5,15 @@ class Student
 
     // database connection and table name
     private $conn;
-    private $table_name = "students";
+    private $table_name = "student";
 
     // object properties
     public $id;
     public $name;
     public $description;
     public $price;
-    public $batch_id;
-    public $batch_name;
+    public $course_id;
+    public $course_name;
     public $created;
 
     // constructor with $db as database connection
@@ -28,12 +28,12 @@ class Student
 
         // select all query
         $query = "SELECT
-                c.name as batch_name, p.id, p.name, p.description, p.price, p.batch_id, p.created
+                c.name as course_name, p.id, p.name, p.description, p.price, p.course_id, p.created
             FROM
                 " . $this->table_name . " p
                 LEFT JOIN
-                    batches c
-                        ON p.batch_id = c.id
+                    coursees c
+                        ON p.course_id = c.id
             ORDER BY
                 p.created DESC";
 
@@ -54,7 +54,7 @@ class Student
         $query = "INSERT INTO
                 " . $this->table_name . "
             SET
-                name=:name, price=:price, description=:description, batch_id=:batch_id, created=:created";
+                name=:name, price=:price, description=:description, course_id=:course_id, created=:created";
 
         // prepare query
         $stmt = $this->conn->prepare($query);
@@ -63,14 +63,14 @@ class Student
         $this->name = htmlspecialchars(strip_tags($this->name));
         $this->price = htmlspecialchars(strip_tags($this->price));
         $this->description = htmlspecialchars(strip_tags($this->description));
-        $this->batch_id = htmlspecialchars(strip_tags($this->batch_id));
+        $this->course_id = htmlspecialchars(strip_tags($this->course_id));
         $this->created = htmlspecialchars(strip_tags($this->created));
 
         // bind values
         $stmt->bindParam(":name", $this->name);
         $stmt->bindParam(":price", $this->price);
         $stmt->bindParam(":description", $this->description);
-        $stmt->bindParam(":batch_id", $this->batch_id);
+        $stmt->bindParam(":course_id", $this->course_id);
         $stmt->bindParam(":created", $this->created);
 
         // execute query
@@ -88,12 +88,12 @@ class Student
 
         // query to read single record
         $query = "SELECT
-                c.name as batch_name, p.id, p.name, p.description, p.price, p.batch_id, p.created
+                c.name as course_name, p.id, p.name, p.description, p.price, p.course_id, p.created
             FROM
                 " . $this->table_name . " p
                 LEFT JOIN
-                    batches c
-                        ON p.batch_id = c.id
+                    coursees c
+                        ON p.course_id = c.id
             WHERE
                 p.id = ?
             LIMIT
@@ -115,8 +115,8 @@ class Student
         $this->name = $row['name'];
         $this->price = $row['price'];
         $this->description = $row['description'];
-        $this->batch_id = $row['batch_id'];
-        $this->batch_name = $row['batch_name'];
+        $this->course_id = $row['course_id'];
+        $this->course_name = $row['course_name'];
     }
 
 // update the student
@@ -130,7 +130,7 @@ class Student
                 name = :name,
                 price = :price,
                 description = :description,
-                batch_id = :batch_id
+                course_id = :course_id
             WHERE
                 id = :id";
 
@@ -141,14 +141,14 @@ class Student
         $this->name = htmlspecialchars(strip_tags($this->name));
         $this->price = htmlspecialchars(strip_tags($this->price));
         $this->description = htmlspecialchars(strip_tags($this->description));
-        $this->batch_id = htmlspecialchars(strip_tags($this->batch_id));
+        $this->course_id = htmlspecialchars(strip_tags($this->course_id));
         $this->id = htmlspecialchars(strip_tags($this->id));
 
         // bind new values
         $stmt->bindParam(':name', $this->name);
         $stmt->bindParam(':price', $this->price);
         $stmt->bindParam(':description', $this->description);
-        $stmt->bindParam(':batch_id', $this->batch_id);
+        $stmt->bindParam(':course_id', $this->course_id);
         $stmt->bindParam(':id', $this->id);
 
         // execute the query
@@ -190,12 +190,12 @@ class Student
 
         // select all query
         $query = "SELECT
-                c.name as batch_name, p.id, p.name, p.description, p.price, p.batch_id, p.created
+                c.name as course_name, p.id, p.name, p.description, p.price, p.course_id, p.created
             FROM
                 " . $this->table_name . " p
                 LEFT JOIN
-                    batches c
-                        ON p.batch_id = c.id
+                    coursees c
+                        ON p.course_id = c.id
             WHERE
                 p.name LIKE ? OR p.description LIKE ? OR c.name LIKE ?
             ORDER BY
@@ -225,12 +225,12 @@ class Student
 
         // select query
         $query = "SELECT
-                c.name as batch_name, p.id, p.name, p.description, p.price, p.batch_id, p.created
+                c.name as course_name, p.id, p.name, p.description, p.price, p.course_id, p.created
             FROM
                 " . $this->table_name . " p
                 LEFT JOIN
-                    batches c
-                        ON p.batch_id = c.id
+                    coursees c
+                        ON p.course_id = c.id
             ORDER BY p.created DESC
             LIMIT ?, ?";
 

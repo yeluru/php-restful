@@ -1,11 +1,11 @@
 <?php
 
-class batch
+class course
 {
 
     // database connection and table name
     private $conn;
-    private $table_name = "batches";
+    private $table_name = "course";
 
     // object properties
     public $id;

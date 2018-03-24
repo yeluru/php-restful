@@ -42,8 +42,7 @@ if($num>0){
             "name" => $name,
             "description" => html_entity_decode($description),
             "price" => $price,
-            "batch_id" => $batch_id,
-            "batch_name" => $batch_name
+            "course_id" => $course_id
         );
  
         array_push($students_arr["records"], $student_item);

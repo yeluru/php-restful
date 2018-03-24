@@ -28,9 +28,7 @@ $student_arr = array(
     "name" => $student->name,
     "description" => $student->description,
     "price" => $student->price,
-    "batch_id" => $student->batch_id,
-    "batch_name" => $student->batch_name
- 
+    "course_id" => $student->course_id
 );
  
 // make it json format
