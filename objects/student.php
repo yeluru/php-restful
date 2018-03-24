@@ -116,7 +116,6 @@ class Student
         $this->price = $row['price'];
         $this->description = $row['description'];
         $this->course_id = $row['course_id'];
-        $this->course_name = $row['course_name'];
     }
 
 // update the student
