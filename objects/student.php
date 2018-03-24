@@ -31,7 +31,7 @@ class Student
             FROM
                 " . $this->table_name . " p
                 LEFT JOIN
-                    coursees c
+                    course c
                         ON p.course_id = c.id
             ORDER BY
                 p.created DESC";
@@ -92,7 +92,7 @@ class Student
             FROM
                 " . $this->table_name . " p
                 LEFT JOIN
-                    coursees c
+                    course c
                         ON p.course_id = c.id
             WHERE
                 p.id = ?
@@ -193,7 +193,7 @@ class Student
             FROM
                 " . $this->table_name . " p
                 LEFT JOIN
-                    coursees c
+                    course c
                         ON p.course_id = c.id
             WHERE
                 p.name LIKE ? OR p.description LIKE ? OR c.name LIKE ?
@@ -228,7 +228,7 @@ class Student
             FROM
                 " . $this->table_name . " p
                 LEFT JOIN
-                    coursees c
+                    course c
                         ON p.course_id = c.id
             ORDER BY p.created DESC
             LIMIT ?, ?";
