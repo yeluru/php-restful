@@ -13,7 +13,6 @@ class Student
     public $description;
     public $price;
     public $course_id;
-    public $course_name;
     public $created;
 
     // constructor with $db as database connection
@@ -28,7 +27,7 @@ class Student
 
         // select all query
         $query = "SELECT
-                c.name as course_name, p.id, p.name, p.description, p.price, p.course_id, p.created
+                p.id, p.name, p.description, p.price, p.course_id, p.created
             FROM
                 " . $this->table_name . " p
                 LEFT JOIN
@@ -88,7 +87,7 @@ class Student
 
         // query to read single record
         $query = "SELECT
-                c.name as course_name, p.id, p.name, p.description, p.price, p.course_id, p.created
+                p.id, p.name, p.description, p.price, p.course_id, p.created
             FROM
                 " . $this->table_name . " p
                 LEFT JOIN
@@ -189,7 +188,7 @@ class Student
 
         // select all query
         $query = "SELECT
-                c.name as course_name, p.id, p.name, p.description, p.price, p.course_id, p.created
+                p.id, p.name, p.description, p.price, p.course_id, p.created
             FROM
                 " . $this->table_name . " p
                 LEFT JOIN
@@ -224,7 +223,7 @@ class Student
 
         // select query
         $query = "SELECT
-                c.name as course_name, p.id, p.name, p.description, p.price, p.course_id, p.created
+                p.id, p.name, p.description, p.price, p.course_id, p.created
             FROM
                 " . $this->table_name . " p
                 LEFT JOIN
