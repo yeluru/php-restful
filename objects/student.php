@@ -36,7 +36,6 @@ class Student
             ORDER BY
                 p.created DESC";
 
-        echo $query;
         // prepare query statement
         $stmt = $this->conn->prepare($query);
 
